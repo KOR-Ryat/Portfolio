@@ -5,6 +5,8 @@ a {color:#fff;}
 #greeting .title {font-size:12pt; font-weight:600; margin-bottom:4px;}
 
 #listFrame {margin-top:48px;}
-.column {width:calc((100% - 96px)/3); margin-left:24px; float:left;}
-.column .item {position:relative;}
-.column img {box-sizing:border-box; width:100%; margin-bottom:12px;}
+#listFrame .column {width:calc((100% - 96px)/3); margin-left:24px; float:left;}
+#listFrame .column .item {position:relative;}
+#listFrame .column img {box-sizing:border-box; width:100%; margin-bottom:12px; filter: grayscale(100%);}
+#listFrame .column img:hover {filter: grayscale(0%); cursor:pointer;}
+
