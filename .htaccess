@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^(/External/Portfolio/index.html)
+RewriteRule . /External/Portfolio/Gallery [L]
