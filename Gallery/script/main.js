@@ -19,10 +19,10 @@ const Gallery = {
 
     viewImage : (e) => {
         const name = e.currentTarget.imageName
-        
+
         document.querySelector("#blurFrame").classList.add("on")
         
-        document.querySelector("#popFrame>.image").innerHTML = `<img src=image/${name}.png>`
+        document.querySelector("#popFrame>.image").innerHTML = `<img src=image/${name}.png onclick=window.open("./image/${name}.png")></a>`
         document.querySelector("#popFrame>.date").innerHTML = imageData[name].date
         document.querySelector("#popFrame>.desc").innerHTML = imageData[name].desc
         document.querySelector("#popFrame").classList.add("on")
