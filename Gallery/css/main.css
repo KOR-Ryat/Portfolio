@@ -4,3 +4,7 @@ a {color:#fff;}
 #greeting {margin-top:48px; width:100%; text-align:center;}
 #greeting .title {font-size:12pt; font-weight:600; margin-bottom:4px;}
 
+#listFrame {margin-top:48px;}
+.column {width:calc((100% - 96px)/3); margin-left:24px; float:left;}
+.column .item {position:relative;}
+.column img {box-sizing:border-box; width:100%; margin-bottom:12px;}
