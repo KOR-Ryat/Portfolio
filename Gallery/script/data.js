@@ -1,6 +1,6 @@
 const imageData = {
-    "WM0" : {
+    "placeHolder" : {
         date : "2022-01",
-        desc : "hi"
+        desc : "description for image"
     }
 }
