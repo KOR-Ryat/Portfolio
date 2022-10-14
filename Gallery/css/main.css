@@ -8,15 +8,15 @@ a {color:#fff;}
 #listFrame .column {width:calc((100% - 96px)/3); margin-left:24px; float:left;}
 #listFrame .column .item {position:relative;}
 #listFrame .column img {box-sizing:border-box; width:100%; margin-bottom:12px; filter: grayscale(100%);}
-#listFrame .column img:hover {filter: grayscale(0%); cursor:pointer;}
+#listFrame .column img:hover {filter: grayscale(0%); cursor:help;}
 
-#blurFrame {position:fixed; top:0px; left:0px; width:100%; height:100%; opacity:0.5; background-color:#fff; display:none;}
+#blurFrame {position:fixed; top:0px; left:0px; width:100%; height:100%; opacity:0.5; background-color:#fff; display:none; cursor:zoom-out;}
 #blurFrame.on {display:block; z-index:1;}
-#blurFrame.on:hover {opacity:0.7}
+#blurFrame.on:hover {opacity:0.55;}
 
-#popFrame {position:fixed; top:calc((100% - 800px)*0.4); left:calc((100% - 800px)/2); width:800px; border:1px solid #fff; background-color:#000; display:none}
+#popFrame {position:fixed; border:1px solid #999; border-radius:3px; background-color:#000; display:none; text-align:center;}
 #popFrame.on {display:block; z-index:2}
-#popFrame .image{display:flex; width:100%; max-height:720px; background-color:#111; overflow:hidden;}
-#popFrame .image img{margin:auto; max-width:100%; max-height:100%; cursor:pointer;}
-#popFrame .date {width:calc(100% - 16px); text-align:right; padding-top:4px;}
-#popFrame .desc {padding:4px 8px;}
+#popFrame .image{width:100%; height:100%; cursor:zoom-in;}
+#popFrame .image img{width:100%; height:100%;}
+#popFrame .date {position:absolute; right:12px; bottom:12px; padding:0 6 2px; border-radius:3px; box-shadow:0 0 2px #000; background-color: rgba(0,0,0,0.6);}
+#popFrame .desc {position:absolute; left:15%; right:15%; text-align:center; bottom:48px; padding:0 6 2px; border-radius:3px; box-shadow:0 0 2px #000; background-color: rgba(0,0,0,0.6);}

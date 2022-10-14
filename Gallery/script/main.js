@@ -28,12 +28,28 @@ const Gallery = {
     viewImage : (e) => {
         const name = e.currentTarget.imageName
 
-        document.querySelector("#blurFrame").classList.add("on")
+        const imageObject = document.createElement('img')
+        imageObject.src = `image/${name}.png`
         
         document.querySelector("#popFrame>.image").innerHTML = `<img src=image/${name}.png onclick=window.open("./image/${name}.png")></a>`
         document.querySelector("#popFrame>.date").innerHTML = imageData[name].date
         document.querySelector("#popFrame>.desc").innerHTML = imageData[name].desc
-        document.querySelector("#popFrame").classList.add("on")
+        
+        imageObject.onload = () => {
+            const resizeRatio = Math.min(
+                window.innerWidth / imageObject.width * 0.8 ,
+                window.innerHeight / imageObject.height * 0.8,
+                1
+            )
+
+            const popFrame = document.querySelector("#popFrame")
+            popFrame.style.top = (window.innerHeight - resizeRatio * imageObject.height)/2
+            popFrame.style.left = (window.innerWidth - resizeRatio * imageObject.width)/2
+            popFrame.style.width = resizeRatio * imageObject.width
+            popFrame.style.height = resizeRatio * imageObject.height
+            popFrame.classList.add("on")
+            document.querySelector("#blurFrame").classList.add("on")
+        }
     },
 
     closeImage : () => {
