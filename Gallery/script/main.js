@@ -1,20 +1,28 @@
 const Gallery = {
-    initialize : () => {
-        Object.keys(imageData).map(name => {
-            const columnHeight = [1,2,3].map(i => document.querySelector(`#listFrame>.column:nth-child(${i})`).scrollHeight)
-            const nextColumn = columnHeight.indexOf(Math.min(...columnHeight))
+    initialize : async () => {
+        const columnHeight = [0,0,0]
+        const fileNames = Object.keys(imageData)
 
+        for(let i=0; i<fileNames.length; i++){
             const imageObject = document.createElement('img')
-            imageObject.src = `image/${name}.png`
+            imageObject.src = `image/${fileNames[i]}.png`
 
-            const itemObject = document.createElement('div')
-            itemObject.imageName = name
-            itemObject.className = 'item'
-            itemObject.addEventListener('click', Gallery.viewImage);
-            itemObject.appendChild(imageObject);
+            await new Promise(resolve => {
+                imageObject.onload = () => {
+                    const nextColumn = columnHeight.indexOf(Math.min(...columnHeight))
+                    columnHeight[nextColumn] += imageObject.height / imageObject.width
 
-            document.querySelector(`#listFrame>.column:nth-child(${nextColumn+1})`).appendChild(itemObject)
-        })
+                    const itemObject = document.createElement('div')
+                    itemObject.imageName = fileNames[i]
+                    itemObject.className = 'item'
+                    itemObject.addEventListener('click', Gallery.viewImage);
+                    itemObject.appendChild(imageObject);
+        
+                    document.querySelector(`#listFrame>.column:nth-child(${nextColumn+1})`).appendChild(itemObject)
+                    resolve()
+                }
+            })
+        }
     },
 
     viewImage : (e) => {
