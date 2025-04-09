@@ -1,6 +1,6 @@
 > Noah Kim Portfolio
 
 The code is implemented here : 
-https://noah-kim.dev/External/Portfolio
+https://portfolio.noah-kim.dev/
 
 + Gallery : Project-related pictures
